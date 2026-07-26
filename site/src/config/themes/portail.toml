@@ -43,6 +43,12 @@ labelForCard = "À la une ✨"
 icon = "tabler:cash"
 labelForCard = "Payant 💶"
 
+[directoryUI.status.inactive]
+labelForCard = "Inactif ⏸️"
+
+[directoryUI.status.closed]
+labelForCard = "Fermé 🔒"
+
 [ui.icons]
 dark = "tabler:moon"
 light = "tabler:sun"

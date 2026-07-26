@@ -5,6 +5,7 @@ import formatString from "../../util/formatString";
 import type Tag from "../../types/Tag";
 import config from "@util/themeConfig";
 import Sidebar from "@layouts/Sidebar.astro";
+import { sortListings } from "@lib/getListings";
 
 export async function getStaticPaths() {
   const tags: Array<Tag> = config.directoryData.tags;
@@ -53,6 +54,6 @@ function toTitleCase(str: string) {
     <p class="text-gray-600 dark:text-gray-200 mb-12 max-w-prose">
       {calculatedDescription}
     </p>
-    <PureGrid listings={tagListings} />
+    <PureGrid listings={sortListings(tagListings)} />
   </div>
 </Sidebar>

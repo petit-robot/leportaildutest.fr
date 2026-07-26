@@ -2,9 +2,7 @@
 import { getListings } from "../../lib/getListings";
 import PureGrid from "./PureGrid.astro";
 
-const allListings = (await getListings()).sort(
-  (a, b) => Number(b.data.featured) - Number(a.data.featured),
-);
+const allListings = await getListings();
 ---
 
 <PureGrid id="directory-grid" listings={allListings} />

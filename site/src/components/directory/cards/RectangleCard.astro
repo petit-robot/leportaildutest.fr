@@ -2,24 +2,30 @@
 import UiTag from "@components/ui/tags/Tag.astro";
 import DirectoryFeaturedTag from "../FeaturedTag.astro";
 import DirectoryPaidTag from "../PaidTag.astro";
+import DirectoryStatusTag from "../StatusTag.astro";
 import { Image } from "astro:assets";
+import { isDimmedStatus } from "@lib/status";
 const { myItem, href } = Astro.props;
+
+// Resource that is no longer active is greyed out.
+const dimmed = isDimmedStatus(myItem.status);
 ---
 
 <a href={href}
   class="block h-full border border-gray-200 dark:border-gray-500 hover:border-gray-400 hover:border-solid dark:hover:border-gray-300 rounded relative group transition-all duration-300">
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.paid ? <DirectoryPaidTag /> : <></> }
+  <DirectoryStatusTag status={myItem.status} />
   { myItem.image ? <Image height={500} width={800} class="w-full h-48 rounded-t object-cover"
     src={myItem.image} alt={myItem.title} /> :  <div
-    class="w-full h-48 px-2 text-center flex justify-center items-center rounded-t font-bold text-2xl bg-gray-200 dark:bg-gray-600">
+    class:list={["w-full h-48 px-2 text-center flex justify-center items-center rounded-t font-bold text-2xl bg-gray-200 dark:bg-gray-600", { "text-gray-400 dark:text-gray-500": dimmed }]}>
     {myItem.title }
   </div> }
   <div class="p-6">
-    <h3 class="m-0 text-lg font-semibold dark:text-gray-50 card-title">
+    <h3 class:list={["m-0 text-lg font-semibold card-title", dimmed ? "text-gray-400 dark:text-gray-500" : "dark:text-gray-50"]}>
       { myItem?.title }
     </h3>
-    <p class="line-clamp-4 mt-2 card-description">
+    <p class:list={["line-clamp-4 mt-2 card-description", { "text-gray-400 dark:text-gray-500": dimmed }]}>
       { myItem.description }
     </p>
     <div class="p-0 mt-2 flex flex-wrap gap-2">

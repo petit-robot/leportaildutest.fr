@@ -2,8 +2,13 @@
 import { Image } from "astro:assets";
 import DirectoryFeaturedTag from "../FeaturedTag.astro";
 import DirectoryPaidTag from "../PaidTag.astro";
+import DirectoryStatusTag from "../StatusTag.astro";
+import { isDimmedStatus } from "@lib/status";
 const { myItem, href } = Astro.props;
 const type = "small-horizontal";
+
+// Resource that is no longer active is greyed out.
+const dimmed = isDimmedStatus(myItem.status);
 ---
 
 <a
@@ -12,6 +17,7 @@ const type = "small-horizontal";
 >
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.paid ? <DirectoryPaidTag /> : <></> }
+  <DirectoryStatusTag status={myItem.status} />
   <div class="flex-none mr-3 rounded-none w-16 h-16 overflow-hidden">
     {
       myItem.image ? (
@@ -29,12 +35,12 @@ const type = "small-horizontal";
 
   <div class="flex-grow">
     <div class="flex items-center justify-between mb-0.5">
-      <h3 class="font-bold line-clamp-1 text-ellipsis overflow-hidden card-title">
+      <h3 class:list={["font-bold line-clamp-1 text-ellipsis overflow-hidden card-title", { "text-gray-400 dark:text-gray-500": dimmed }]}>
         {myItem.title}
       </h3>
     </div>
 
-    <p class="text-sm md:text-xs text-gray-600 dark:text-gray-400 line-clamp-2 card-description">
+    <p class:list={["text-sm md:text-xs line-clamp-2 card-description", dimmed ? "text-gray-400 dark:text-gray-500" : "text-gray-600 dark:text-gray-400"]}>
       {myItem.description}
     </p>
   </div>

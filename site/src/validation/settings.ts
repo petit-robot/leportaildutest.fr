@@ -135,6 +135,9 @@ const directoryUI = z.object({
     icon: z.string(),
     labelForCard: z.string(),
   }),
+  status: z
+    .record(z.string(), z.object({ labelForCard: z.string() }))
+    .default({}),
 });
 
 const listingsSchema = z.object({

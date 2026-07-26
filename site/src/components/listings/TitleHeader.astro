@@ -1,17 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import StatusTag from "@components/directory/StatusTag.astro";
+import PaidTag from "@components/directory/PaidTag.astro";
 
-const { title, link, linkText, description, image } = Astro.props;
+const { title, link, linkText, description, image, status, paid } = Astro.props;
 ---
 
 <div class="mb-10">
   <div class="flex justify-between items-end">
     <div>
       {image && <Image class="h-15 w-15 mb-8" src={image} alt={title} />}
-      <h1 class="font-bold text-4xl text-gray-900 dark:text-gray-50">
-        {title}
-      </h1>
+      <div class="flex items-center gap-3 flex-wrap">
+        <h1 class="font-bold text-4xl text-gray-900 dark:text-gray-50">
+          {title}
+        </h1>
+        {paid && <PaidTag class="" />}
+        <StatusTag status={status} class="" />
+      </div>
     </div>
     {
       link && (
