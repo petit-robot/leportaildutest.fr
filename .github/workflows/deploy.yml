@@ -43,3 +43,47 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Informational only: waits for the deployment to be served, then crawls the
+  # whole online site. It is allowed to fail so that an unreachable third party
+  # site never turns a successful deployment red.
+  linkcheck:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      SITE: https://leportaildutest.fr/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: atest/requirements.txt
+      - name: Install link check dependencies
+        run: pip install -r atest/requirements.txt
+      - name: Wait for the deployment to be served
+        run: |
+          for attempt in $(seq 30); do
+            if curl -sSf -o /dev/null -H 'Cache-Control: no-cache' "$SITE"; then
+              echo "$SITE answered after $attempt attempt(s)"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "::error::$SITE did not answer in time"
+          exit 1
+      # --file-output takes TYPE/ENCODING/FILENAME, so the report below is an
+      # html one, encoded in utf-8, written to atest/results/deployed-links.html.
+      - name: Check the links of the deployed site
+        run: |
+          mkdir -p atest/results
+          linkchecker --config=atest/linkcheckerrc --verbose \
+            --file-output=html/utf-8/atest/results/deployed-links.html \
+            "$SITE"
+      - name: Publish the link check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployed-link-check
+          path: atest/results
