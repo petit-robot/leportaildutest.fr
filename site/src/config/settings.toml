@@ -8,7 +8,7 @@ iconLogo = "tabler:flask"
 [general.seo]
 name = "Le Portail du Test Logiciel Francophone"
 description = "Le portail des ressources francophones du test logiciel : blogs, podcasts, newsletters, magazines, communautés, événements, emploi, études et formations, livres."
-url = "https://le-portail-du-test.fr"
+url = "https://leportaildutest.fr"
 
 [directoryData.source]
 name = "default" # default, mock, sheets, json
@@ -86,7 +86,7 @@ description = "Podcasts francophones consacrés au test logiciel et à l'assuran
 [header.banner]
 show = false
 text = ""
-link = "https://le-portail-du-test.fr"
+link = "https://leportaildutest.fr"
 brandText = "Le Portail du test logiciel"
 
 [header.navbar]

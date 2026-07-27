@@ -57,7 +57,7 @@ status: closed
 ├── content/   # Le contenu du site (indépendant du thème)
 │   ├── directory/   # L'annuaire : un fichier .md par ressource, rangé par sous-dossier de catégorie (blogs/, podcasts/…)
 │   ├── blog/        # Articles de blog (non utilisé actuellement)
-│   ├── pages/       # Pages statiques (une route par fichier, non utilisé actuellement)
+│   ├── pages/       # Pages statiques (une route par fichier)
 │   └── images/      # Images utilisées par le contenu
 └── site/      # Le site Astro (thème Minted Directory)
     ├── src/             # Composants, layouts, config du thème
