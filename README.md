@@ -80,3 +80,7 @@ npm run build    # build statique dans site/dist/
 La configuration du site (titre, navigation, source de l'annuaire…) se fait dans `site/src/config/settings.toml`.
 
 Voir `site/README.md` pour la documentation du thème d'origine.
+
+## Licence
+
+Voir [LICENSE.md](LICENSE.md).
