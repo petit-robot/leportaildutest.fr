@@ -2,6 +2,7 @@ import { getCollection, getEntry } from 'astro:content';
 import fs from 'fs';
 import path from 'path';
 import { ImageResponse } from '@vercel/og';
+import sharp from 'sharp';
 import { getRootPages } from '@lib/getRootPages';
 import config from '@util/themeConfig';
 import { type AllContent } from '../../types/content';
@@ -50,9 +51,13 @@ export async function GET({ params }: Props) {
   const GabaritoSansRegular = fs.readFileSync(
     path.resolve(regularFontPath),
   );
-  let postCover;
+  // Astro emits optimized assets as WebP, which @vercel/og cannot decode:
+  // re-encode the cover to PNG before handing it over.
+  let postCover: ArrayBuffer | null = null;
   try {
-    postCover = fs.readFileSync(getPostCoverImage(entry));
+    const raw = fs.readFileSync(getPostCoverImage(entry));
+    const png = await sharp(raw).png().toBuffer();
+    postCover = png.buffer.slice(png.byteOffset, png.byteOffset + png.byteLength) as ArrayBuffer;
   } catch (error) {
     postCover = null;
   }
@@ -60,7 +65,7 @@ export async function GET({ params }: Props) {
   const image = postCover ? {
     type: 'img',
     props: {
-      src: postCover.buffer,
+      src: postCover,
     },
   } :               {
     type: 'div',

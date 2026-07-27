@@ -10,7 +10,7 @@ const { title, link, linkText, description, image, status, paid } = Astro.props;
 <div class="mb-10">
   <div class="flex justify-between items-end">
     <div>
-      {image && <Image class="h-15 w-15 mb-8" src={image} alt={title} />}
+      {image && <Image class="h-15 w-15 mb-8 object-contain" src={image} alt={title} />}
       <div class="flex items-center gap-3 flex-wrap">
         <h1 class="font-bold text-4xl text-gray-900 dark:text-gray-50">
           {title}
