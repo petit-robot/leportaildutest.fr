@@ -20,7 +20,16 @@ const navigation = [
   {
     title: "Ressources",
     links: [
-      { title: "Proposer", link: "/submit" },
+      {
+        title: "Proposer une ressource",
+        link: "https://github.com/apallier/leportaildutest.fr/issues/new?title=%5BAjout%5D",
+        external: true,
+      },
+      {
+        title: "Proposer une modification",
+        link: "https://github.com/apallier/leportaildutest.fr/issues/new?title=%5BModification%5D&body=Ressource%20concern%C3%A9e%20:%20%3C%C3%A0%20remplir%3E",
+        external: true,
+      },
     ],
   },
   // {
@@ -77,6 +86,8 @@ const navigation = [
                     <li>
                       <a
                         href={item.link}
+                        target={"external" in item && item.external ? "_blank" : undefined}
+                        rel={"external" in item && item.external ? "noopener noreferrer" : undefined}
                         class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:dark:text-gray-400 hover:text-gray-900"
                       >
                         {item.title}
@@ -96,6 +107,8 @@ const navigation = [
                       <li>
                         <a
                           href={item.link}
+                          target={"external" in item && item.external ? "_blank" : undefined}
+                          rel={"external" in item && item.external ? "noopener noreferrer" : undefined}
                           class="text-sm leading-6 text-gray-600 dark:text-gray-300 hover:dark:text-gray-400 hover:text-gray-900"
                         >
                           {item.title}

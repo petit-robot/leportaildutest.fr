@@ -53,6 +53,8 @@ const currentPath = new URL(Astro.request.url).pathname;
     { config.header.actionButton.href &&
       <a
         href={config.header.actionButton.href}
+        target="_blank"
+        rel="noopener noreferrer"
         class="hidden md:inline-flex items-center dark:text-gray-300 text-gray-600"
       >
         {config.header.actionButton.text}
