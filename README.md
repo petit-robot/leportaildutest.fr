@@ -1,6 +1,6 @@
 # Le Portail du test logiciel
 
-Le portail des ressources francophones du test logiciel : blogs, podcasts, newsletters, magazines, interviews, communautés, événements, emploi, formations et études.
+Le portail des ressources francophones du test logiciel : blogs, podcasts, newsletters, magazines, communautés, événements, emploi, formations et études.
 
 👉 https://le-portail-du-test.fr
 
