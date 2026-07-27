@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import AppShell from "@components/app/AppShell.astro";
+import { Icon } from "astro-icon/components";
+
+const title = "Page introuvable";
+---
+
+<BaseLayout title={title}>
+  <AppShell>
+    <div class="max-w-2xl w-full mx-auto py-20 px-5">
+      <p class="font-medium text-gray-400">Erreur 404</p>
+      <h1 class="font-bold text-4xl text-gray-900 dark:text-gray-50 mt-2.5">
+        {title}
+      </h1>
+      <p class="text-gray-400 mt-2.5">
+        La page que vous cherchez n'existe pas ou a été déplacée.
+      </p>
+      <a
+        class="inline-flex items-center gap-1 font-medium text-gray-800 dark:text-gray-100 mt-10"
+        href="/"
+      >
+        Retour à l'accueil
+        <Icon name="tabler:arrow-right" />
+      </a>
+    </div>
+  </AppShell>
+</BaseLayout>
