@@ -1,0 +1,23 @@
+# linkchecker settings for the full crawl of the deployed site
+
+[checking]
+threads=10
+timeout=20
+# Do not hammer a single host.
+maxrequestspersecond=5
+
+[filtering]
+# Actually call the external links instead of only checking their syntax.
+checkextern=1
+# Links that are not called at all, because they are known not to answer.
+# A resource marked `status: closed` in content/directory/ points to a site that
+# shut down: add its link here when the site stops answering.
+ignore=
+  ^https://allaboutqablog\.com/$
+
+[output]
+# Tolerated errors, as: <url regex> <error message regex>.
+# For hosts that protect themselves against robots: the link is alive but
+# answers an error to anything that is not a browser.
+ignoreerrors=
+  ^https://medium\.com/ ^403
