@@ -150,12 +150,12 @@ export async function GET({ params }: Props) {
     fonts: [
       {
         name: 'Gabarito Bold',
-        data: GabartitoSansBold.buffer,
+        data: GabartitoSansBold,
         style: 'normal',
       },
       {
         name: 'Gabarito Regular',
-        data: GabaritoSansRegular.buffer,
+        data: GabaritoSansRegular,
         style: 'normal',
       },
     ],
