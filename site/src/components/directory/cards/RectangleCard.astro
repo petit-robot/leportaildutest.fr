@@ -16,9 +16,9 @@ const dimmed = isDimmedStatus(myItem.status);
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.paid ? <DirectoryPaidTag /> : <></> }
   <DirectoryStatusTag status={myItem.status} />
-  { myItem.image ? <Image height={500} width={800} class="w-full h-48 rounded-t object-cover"
+  { myItem.image ? <Image height={512} width={512} class="w-full aspect-square rounded-t object-cover"
     src={myItem.image} alt={myItem.title} /> :  <div
-    class:list={["w-full h-48 px-2 text-center flex justify-center items-center rounded-t font-bold text-2xl bg-gray-200 dark:bg-gray-600", { "text-gray-400 dark:text-gray-500": dimmed }]}>
+    class:list={["w-full aspect-square px-2 text-center flex justify-center items-center rounded-t font-bold text-2xl bg-gray-200 dark:bg-gray-600", { "text-gray-400 dark:text-gray-500": dimmed }]}>
     {myItem.title }
   </div> }
   <div class="p-6">
