@@ -44,9 +44,6 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-  # Informational only: waits for the deployment to be served, then crawls the
-  # whole online site. It is allowed to fail so that an unreachable third party
-  # site never turns a successful deployment red.
   linkcheck:
     needs: deploy
     runs-on: ubuntu-latest
@@ -76,11 +73,17 @@ jobs:
       # --file-output takes TYPE/ENCODING/FILENAME, so the report below is an
       # html one, encoded in utf-8, written to atest/results/deployed-links.html.
       - name: Check the links of the deployed site
+        id: linkcheck
+        continue-on-error: true
         run: |
           mkdir -p atest/results
           linkchecker --config=atest/linkcheckerrc --verbose \
             --file-output=html/utf-8/atest/results/deployed-links.html \
             "$SITE"
+      - name: Warn about the broken links
+        if: steps.linkcheck.outcome == 'failure'
+        run: |
+          echo "::warning::linkchecker reported broken links, see the deployed-link-check artifact"
       - name: Publish the link check report
         if: always()
         uses: actions/upload-artifact@v4

@@ -2,7 +2,7 @@
 
 [checking]
 threads=10
-timeout=20
+timeout=30
 # Do not hammer a single host.
 maxrequestspersecond=5
 
