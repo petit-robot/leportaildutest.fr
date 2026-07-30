@@ -28,3 +28,7 @@ pnpm-debug.log*
 
 # Claude
 .claude/
+
+# Python
+venv/
+.venv/

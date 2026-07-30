@@ -1,0 +1,125 @@
+name: "➕ Proposer une nouvelle ressource"
+description: "Proposer l'ajout d'une ressource au portail."
+title: "[Ajout] "
+labels: ["add resource"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de proposer une ressource.
+
+        Le portail recense des ressources **francophones** consacrées au **test et à la qualité logiciels**.
+        Remplissez les champs ci-dessous : ils correspondent à la fiche qui sera créée dans `content/directory/`.
+
+  - type: input
+    id: title
+    attributes:
+      label: Nom de la ressource
+      description: Le nom tel qu'il doit apparaître sur la fiche.
+      placeholder: "Le Blog du Testeur"
+    validations:
+      required: true
+
+  - type: input
+    id: link
+    attributes:
+      label: Lien
+      description: URL principale de la ressource.
+      placeholder: "https://exemple.fr/"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Catégorie(s)
+      description: Une ou plusieurs catégories du portail.
+      multiple: true
+      options:
+        - "✍️ Blogs"
+        - "👥 Communautés"
+        - "💼 Emploi"
+        - "🎓 Études et formations"
+        - "📅 Événements"
+        - "📚 Livres"
+        - "📖 Magazines"
+        - "📬 Newsletters"
+        - "🎧 Podcasts"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Quelques phrases présentant la ressource, ce qu'on y trouve et à qui elle s'adresse.
+      placeholder: "Un blog francophone consacré au test logiciel : méthodologie, automatisation, métier et retours d'expérience. Publications régulières."
+    validations:
+      required: true
+
+  - type: textarea
+    id: image
+    attributes:
+      label: Image / logo
+      description: Facultatif. Glissez-déposez une image ici, ou collez l'URL du logo.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: paid
+    attributes:
+      label: Payant
+      options:
+        - label: "La ressource n'est accessible qu'après paiement (inutile pour les livres et les conférences, payants par défaut)"
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        > **Contenu payant : une autorisation préalable est nécessaire.**
+        >
+        > Les formations et les abonnements payants (les livres et les conférences ne sont pas
+        > concernés) ne peuvent être référencés qu'après approbation, comme indiqué dans les
+        > [mentions légales](https://leportaildutest.fr/legal/mentions).
+        > Écrivez à [contact@leportaildutest.fr](mailto:contact@leportaildutest.fr) pour entrer en contact avec le
+        > responsable du site.
+
+  - type: checkboxes
+    id: paid-authorization
+    attributes:
+      label: Autorisation pour un contenu payant
+      description: À remplir uniquement si vous avez coché « payant » ci-dessus, pour une formation ou un abonnement.
+      options:
+        - label: "J'ai contacté contact@leportaildutest.fr, ou je le fais dès l'ouverture de cette issue"
+          required: false
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: État de la ressource
+      description: Laissez « Active » en cas de doute.
+      options:
+        - "Active (mise à jour dans les 2 dernières années)"
+        - "Inactive (plus de mise à jour depuis plus de 2 ans)"
+        - "Fermée (arrêt annoncé, ou ressource plus directement disponible)"
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: complement
+    attributes:
+      label: Informations complémentaires
+      description: Facultatif. Tout ce qui peut aider à instruire la proposition (liens, contexte, lien avec la ressource…).
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Vérifications
+      options:
+        - label: "La ressource est francophone et porte sur le test ou la qualité logiciels"
+          required: true
+        - label: "J'ai vérifié qu'elle n'est pas déjà présente sur https://leportaildutest.fr"
+          required: true
