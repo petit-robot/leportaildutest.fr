@@ -2,6 +2,7 @@
 import UiTag from "@components/ui/tags/Tag.astro";
 import DirectoryFeaturedTag from "../FeaturedTag.astro";
 import DirectoryPaidTag from "../PaidTag.astro";
+import DirectoryAffiliateTag from "../AffiliateTag.astro";
 import DirectoryStatusTag from "../StatusTag.astro";
 import { Image } from "astro:assets";
 import { isDimmedStatus } from "@lib/status";
@@ -15,6 +16,7 @@ const dimmed = isDimmedStatus(myItem.status);
   class="block h-full border border-gray-200 dark:border-gray-500 hover:border-gray-400 hover:border-solid dark:hover:border-gray-300 rounded relative group transition-all duration-300">
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.paid ? <DirectoryPaidTag /> : <></> }
+  { myItem.affiliate ? <DirectoryAffiliateTag /> : <></> }
   <DirectoryStatusTag status={myItem.status} />
   { myItem.image ? <Image height={512} width={512} class="w-full aspect-square rounded-t object-cover"
     src={myItem.image} alt={myItem.title} /> :  <div

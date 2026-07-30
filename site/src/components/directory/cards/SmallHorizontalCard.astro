@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import DirectoryFeaturedTag from "../FeaturedTag.astro";
 import DirectoryPaidTag from "../PaidTag.astro";
+import DirectoryAffiliateTag from "../AffiliateTag.astro";
 import DirectoryStatusTag from "../StatusTag.astro";
 import { isDimmedStatus } from "@lib/status";
 const { myItem, href } = Astro.props;
@@ -17,6 +18,7 @@ const dimmed = isDimmedStatus(myItem.status);
 >
   { myItem.featured ? <DirectoryFeaturedTag class="ml-6"  /> : <></> }
   { myItem.paid ? <DirectoryPaidTag /> : <></> }
+  { myItem.affiliate ? <DirectoryAffiliateTag /> : <></> }
   <DirectoryStatusTag status={myItem.status} />
   <div class="flex-none mr-3 rounded-none w-16 h-16 overflow-hidden">
     {
