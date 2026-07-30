@@ -1,0 +1,50 @@
+name: "✏️ Proposer la modification d'une ressource"
+description: "Corriger ou mettre à jour une fiche existante du portail."
+title: "[Modification] "
+labels: ["modify resource"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de contribuer à la qualité du portail.
+
+        Indiquez la fiche concernée et ce qu'il faut corriger.
+
+  - type: input
+    id: resource
+    attributes:
+      label: Ressource concernée
+      description: Nom de la fiche et, si possible, son URL sur le portail.
+      placeholder: "Le Blog du Testeur — https://leportaildutest.fr/le-blog-du-testeur"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: kind
+    attributes:
+      label: Que faut-il modifier ?
+      options:
+        - label: "Le nom"
+        - label: "Le lien (URL changée ou lien mort)"
+        - label: "La description"
+        - label: "La ou les catégories"
+        - label: "L'image / le logo"
+        - label: "L'accès (gratuit / payant)"
+        - label: "L'état : la ressource est devenue inactive ou a fermé"
+        - label: "Suppression de la fiche"
+        - label: "Autre"
+    validations:
+      required: true
+
+  - type: textarea
+    id: change
+    attributes:
+      label: Modification proposée
+      description: Décrivez précisément le changement — idéalement la valeur actuelle et la valeur souhaitée.
+      placeholder: |
+        Lien actuel : https://ancien-domaine.fr/
+        Nouveau lien : https://nouveau-domaine.fr/
+
+        Le site a déménagé en janvier, l'ancien domaine ne répond plus.
+    validations:
+      required: true
