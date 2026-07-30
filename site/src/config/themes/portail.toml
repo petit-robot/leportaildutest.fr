@@ -43,6 +43,10 @@ labelForCard = "À la une ✨"
 icon = "tabler:cash"
 labelForCard = "Payant 💶"
 
+[directoryUI.affiliate]
+icon = "tabler:heart-handshake"
+labelForCard = "Affiliation 🤝"
+
 [directoryUI.status.inactive]
 labelForCard = "Inactif ⏸️"
 

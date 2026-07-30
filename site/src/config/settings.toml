@@ -95,7 +95,7 @@ links = []
 
 [header.actionButton]
 text = "Proposer une ressource"
-href = "https://github.com/apallier/leportaildutest.fr/issues/new?title=%5BAjout%5D"
+href = "https://github.com/apallier/leportaildutest.fr/issues/new?template=ressource-ajout.yml"
 
 [footer]
 description = "Le Portail du test logiciel : le portail des ressources francophones du test logiciel."

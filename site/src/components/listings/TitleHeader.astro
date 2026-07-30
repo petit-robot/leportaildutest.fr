@@ -3,8 +3,10 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import StatusTag from "@components/directory/StatusTag.astro";
 import PaidTag from "@components/directory/PaidTag.astro";
+import AffiliateTag from "@components/directory/AffiliateTag.astro";
 
-const { title, link, linkText, description, image, status, paid } = Astro.props;
+const { title, link, linkText, description, image, status, paid, affiliate } =
+  Astro.props;
 ---
 
 <div class="mb-10">
@@ -16,6 +18,7 @@ const { title, link, linkText, description, image, status, paid } = Astro.props;
           {title}
         </h1>
         {paid && <PaidTag class="" />}
+        {affiliate && <AffiliateTag class="" />}
         <StatusTag status={status} class="" />
       </div>
     </div>

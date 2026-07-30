@@ -135,6 +135,13 @@ const directoryUI = z.object({
     icon: z.string(),
     labelForCard: z.string(),
   }),
+  // Optional so the themes shipped with the original theme keep validating.
+  affiliate: z
+    .object({
+      icon: z.string(),
+      labelForCard: z.string(),
+    })
+    .default({ icon: "tabler:heart-handshake", labelForCard: "Affiliate" }),
   status: z
     .record(z.string(), z.object({ labelForCard: z.string() }))
     .default({}),
