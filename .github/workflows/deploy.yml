@@ -77,7 +77,7 @@ jobs:
         continue-on-error: true
         run: |
           mkdir -p atest/results
-          linkchecker --config=atest/linkcheckerrc --verbose \
+          linkchecker --config=atest/linkcheckerrc \
             --file-output=html/utf-8/atest/results/deployed-links.html \
             "$SITE"
       - name: Warn about the broken links

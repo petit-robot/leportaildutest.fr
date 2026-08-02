@@ -10,10 +10,11 @@ maxrequestspersecond=5
 # Actually call the external links instead of only checking their syntax.
 checkextern=1
 # Links that are not called at all, because they are known not to answer.
-# A resource marked `status: closed` in content/directory/ points to a site that
-# shut down: add its link here when the site stops answering.
 ignore=
+  # status: closed
   ^https://allaboutqablog\.com/$
+  # Don't respond from Github
+  ^https://www\.eyrolles\.com/.*$
 
 [output]
 # Tolerated errors, as: <url regex> <error message regex>.
