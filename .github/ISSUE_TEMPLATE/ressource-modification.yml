@@ -1,6 +1,6 @@
 name: "✏️ Proposer la modification d'une ressource"
 description: "Corriger ou mettre à jour une fiche existante du portail."
-title: "[Modification] "
+title: "<nom de la ressource>"
 labels: ["modify resource"]
 body:
   - type: markdown

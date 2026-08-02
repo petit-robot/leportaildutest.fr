@@ -1,6 +1,6 @@
 name: "➕ Proposer une nouvelle ressource"
 description: "Proposer l'ajout d'une ressource au portail."
-title: "[Ajout] "
+title: "<nom de la ressource>"
 labels: ["add resource"]
 body:
   - type: markdown
