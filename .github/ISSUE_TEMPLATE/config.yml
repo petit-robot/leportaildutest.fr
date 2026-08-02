@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: "📖 Contribuer par pull request"
-    url: https://github.com/apallier/leportaildutest.fr#par-pull-request
+    url: https://github.com/petit-robot/leportaildutest.fr#par-pull-request
     about: "Vous êtes à l'aise avec Git ? Ajoutez ou modifiez directement le fichier de la fiche."
   - name: "🔎 Consulter le portail"
     url: https://leportaildutest.fr
