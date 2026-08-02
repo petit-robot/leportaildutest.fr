@@ -10,8 +10,8 @@ Les contributions sont les bienvenues : ajout d'une ressource manquante, correct
 
 ### Par issue (aucune compétence technique requise)
 
-- 👉 [Proposer une nouvelle ressource](https://github.com/apallier/leportaildutest.fr/issues/new?template=ressource-ajout.yml) : un formulaire guidé reprend les champs de la fiche (nom, lien, catégories, description…).
-- 👉 [Proposer une modification](https://github.com/apallier/leportaildutest.fr/issues/new?template=ressource-modification.yml) : indiquez la fiche concernée et ce qu'il faut corriger.
+- 👉 [Proposer une nouvelle ressource](https://github.com/petit-robot/leportaildutest.fr/issues/new?template=ressource-ajout.yml) : un formulaire guidé reprend les champs de la fiche (nom, lien, catégories, description…).
+- 👉 [Proposer une modification](https://github.com/petit-robot/leportaildutest.fr/issues/new?template=ressource-modification.yml) : indiquez la fiche concernée et ce qu'il faut corriger.
 
 ### Par pull request
 
