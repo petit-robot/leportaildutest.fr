@@ -1,1 +1,6 @@
 linkchecker>=10.6.0
+robotframework>=7.3
+mistralai>=2.8
+PyYAML>=6.0
+requests>=2.32
+beautifulsoup4>=4.13

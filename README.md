@@ -81,19 +81,11 @@ npm run build    # build statique dans site/dist/
 
 La configuration du site (titre, navigation, source de l'annuaire…) se fait dans `site/src/config/settings.toml`.
 
-Voir `site/README.md` pour la documentation du thème d'origine.
+Voir [site/README.md](site/README.md) pour la documentation du thème d'origine.
 
 ### Tests
 
-Après chaque déploiement, la CI lance un parcours complet avec linkchecker, liens externes compris.
-
-Pour le rejouer en local :
-
-```sh
-pip install -r atest/requirements.txt
-linkchecker --config=atest/linkcheckerrc http://localhost:4321/
-```
-Les exceptions sont dans `atest/linkcheckerrc` : `ignore` pour les liens qui ne répondent plus (site fermé), `ignoreerrors` pour les hébergeurs qui bloquent les robots (le lien est valide mais répond une erreur hors navigateur).
+Voir [atest/README.md](atest/README.md).
 
 ## Licence
 
