@@ -1,0 +1,40 @@
+name: Relevance audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: relevance
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: atest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: atest/requirements.txt
+      - name: Install the test dependencies
+        run: pip install -r requirements.txt
+      - name: Audit every resource
+        id: audit
+        continue-on-error: true
+        env:
+          AGENT_API_KEY: ${{ secrets.AGENT_API_KEY }}
+          AGENT_ID: ${{ secrets.AGENT_ID }}
+        run: robot --prerunmodifier libs/TestCaseGenerator.py --variable AGENT_ID:$AGENT_ID --outputdir results tests/
+      - name: Publish the audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relevance-audit
+          path: atest/results
