@@ -2,7 +2,7 @@ theme = 'portail'
 
 [general]
 title = "Le Portail du Test Logiciel Francophone"
-logo = ""
+logo = "/logo.png"
 iconLogo = "tabler:flask"
 
 [general.seo]
