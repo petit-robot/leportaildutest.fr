@@ -1,0 +1,7 @@
+-r requirements.txt
+
+# Quality tools, configured in pyproject.toml next to this file.
+ruff>=0.15
+robotframework-robocop>=6
+docstrfmt>=1.11
+sphinx-lint>=0.9

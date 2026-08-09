@@ -1,0 +1,106 @@
+# Not a Python package. Used only for tools configuration.
+
+[tool.ruff]
+exclude = [
+    "results",
+]
+
+line-length = 120
+indent-width = 4
+# No packaging metadata to infer it from: the version the workflows run on, and
+# the one `tomllib` needs to be seen as part of the standard library.
+target-version = "py312"
+
+# Select specific rules to enable or disable.
+[tool.ruff.lint]
+preview = true
+ignore = [
+    "incorrect-blank-line-before-class",  # Resolve conflicting pydocstyle (D) rules.
+    "multi-line-summary-second-line", # Resolve conflicting pydocstyle (D) rules.
+]
+select = [
+    # pycodestyle (errors + warnings)
+    "E",
+    "W",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # McCabe complexity
+    "C90",
+    # Pylint
+    "PL",
+    # PEP 8 naming
+    "N",
+    # pydocstyle
+    "D",
+    # Ruff specific
+    "RUF",
+    # flake8-builtins (don't shadow builtins)
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-datetimez (timezone-aware datetimes)
+    "DTZ",
+    # flake8-future-annotations
+    "FA",
+    # flynt (string join -> f-string)
+    "FLY",
+    # flake8-import-conventions
+    "ICN",
+    # Perflint
+    "PERF",
+    # pygrep-hooks (blanket noqa/type-ignore, etc.)
+    "PGH",
+    # flake8-pie
+    "PIE",
+    # flake8-pytest-style
+    "PT",
+    # flake8-use-pathlib
+    "PTH",
+    # flake8-return
+    "RET",
+    # flake8-raise
+    "RSE",
+    # flake8-self (private member access)
+    "SLF",
+    # flake8-bandit (security)
+    "S",
+    # flake8-type-checking
+    "TC",
+    # flake8-tidy-imports
+    "TID",
+    # tryceratops (exception handling)
+    "TRY",
+]
+
+[tool.docstrfmt]
+line_length = 120
+docstring_trailing_line = false
+
+[tool.robocop]
+language = ["en", "fr"]
+
+[tool.robocop.lint]
+configure = [
+    "line-too-long.line_length=120"
+]
+reports = [
+    "all",
+    "return_status"
+]
+
+[tool.robocop.format]
+line_ending = "unix"
+line_length = 120
+configure = [
+    "RenameKeywords.enabled=True",
+    "RenameTestCases.enabled=True",
+    "RenameTestCases.capitalize_each_word=True"
+]

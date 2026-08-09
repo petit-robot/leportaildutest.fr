@@ -12,6 +12,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quality:
+    name: Code quality
+    runs-on: ubuntu-latest
+    # Where the tools and their configuration live: ruff and robocop only find
+    # pyproject.toml when run from there. See atest/Makefile.
+    defaults:
+      run:
+        working-directory: atest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: atest/requirements-dev.txt
+      - name: Install the quality tools
+        run: pip install -r requirements-dev.txt
+      - name: ruff check
+        run: ruff check .
+      - name: ruff format
+        run: ruff format --check .
+      - name: robocop check
+        run: robocop check .
+      - name: robocop format
+        run: robocop format --check .
+      # --pyproject-config, because docstrfmt anchors its configuration lookup on the .git directory,
+      # and --ignore-cache, because the docstrfmt cache ignores the configuration.
+      - name: docstrfmt
+        run: docstrfmt --check --ignore-cache --pyproject-config pyproject.toml .
+      - name: sphinx-lint
+        run: sphinx-lint --max-line-length 120 .
+
   build:
     runs-on: ubuntu-latest
     defaults:
