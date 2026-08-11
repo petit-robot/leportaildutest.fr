@@ -5,3 +5,5 @@ description: "Le livre collectif du CFTL, écrit par la communauté francophone 
 link: "https://cftl.fr/livre-les-tests-logiciels-en-agile-cftl/"
 image: "../../images/les-tests-logiciels-en-agile.png"
 ---
+
+[Téléchargeable](https://cftl.fr/wp-content/uploads/2023/11/Les-tests-logiciel-en-agile-CFTL-2019.pdf) gratuitement en PDF
