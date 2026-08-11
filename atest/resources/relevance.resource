@@ -78,7 +78,7 @@ Should Activity Older Than '${duration}'
     ${date_limit}=    Get Current Date    increment=-${duration}
     ${message}=    Create Error Message
     ...    ${resource}    activity
-    ...    declared inactive but published ${published}, after the ${date_limit} limit
+    ...    declared inactive but published ${date_published}, after the ${date_limit} limit
     ...    ${verdict}[activity_reason]
     Should Be True    $date_published < $date_limit    msg=${message}
 
@@ -108,7 +108,7 @@ Should Not Be Active
         ...    ${verdict}[activity_reason]
         Should Not Be True    $verdict['is_active']    msg=${message}
     ELSE
-        Should Activity Older Than '104 weeks'    ${resourse}
+        Should Activity Older Than '104 weeks'    ${resource}
     END
 
 Should Be Discontinued
