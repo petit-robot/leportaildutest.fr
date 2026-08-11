@@ -19,6 +19,11 @@ from resources import Resource
 DEFAULT_MODEL = "mistral-large-latest"
 PAGE_EXCERPT_CHARS = 6000
 HTTP_TIMEOUT = 20
+HTTP_HEADERS = {
+    "User-Agent": "LePortailDuTestAgent/1.0 (relevance audit)",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+}
 # Pinned so two runs on unchanged inputs give the same verdict.
 RANDOM_SEED = 20260802
 
@@ -257,6 +262,7 @@ Extract of the fetched page
         try:
             response = requests.get(
                 url,
+                headers=HTTP_HEADERS,
                 timeout=HTTP_TIMEOUT,
                 allow_redirects=True,
             )
