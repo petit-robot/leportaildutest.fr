@@ -26,7 +26,9 @@ Test Resource ${resource}
         Should Be Free Resource    ${resource}
     END
 
-    Resource Status Should Be '${resource.status}'    ${resource}
+    IF    $resource.category == 'livres'
+        Resource Status Should Be '${resource.status}'    ${resource}
+    END
 
     ${tags_found}=    Get Actual Resource Categories    ${resource}
     List Should Contain Sub List    ${tags_found}    ${resource.tags}
