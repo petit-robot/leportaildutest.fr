@@ -20,3 +20,4 @@
 - [ ] Les `tags` correspondent à des clés définies dans `site/src/config/settings.toml`
 - [ ] L'image éventuelle est dans `content/images/<slug>.png` et référencée par `image: "../../images/<slug>.png"`
 - [ ] `npm run build` passe dans `site/`
+- [ ] _(si le contenu est payant)_ J'ai contacté contact@leportaildutest.fr ou je le fais dès l'ouverture de cette PR
