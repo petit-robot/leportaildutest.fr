@@ -1,18 +1,18 @@
 *** Settings ***
-Documentation       Keywords asserting that a resource still matches what it declares.
+Documentation    Keywords asserting that a resource still matches what it declares.
 ...
-...                 Every assertion reads the same verdict, obtained once per resource from the AI agent.
-...                 Keywords interprets the verdict returned by the agent.
+...              Every assertion reads the same verdict, obtained once per resource from the AI agent.
+...              Keywords interprets the verdict returned by the agent.
 
-Library             Collections
-Library             DateTime
-Library             String
-Library             ${CURDIR}/../libs/RelevanceAuditAgent.py    model=${MODEL}    agent_id=${AGENT_ID}
+Library          Collections
+Library          DateTime
+Library          String
+Library          ${CURDIR}/../libs/RelevanceAuditAgent.py    model=${MODEL}    agent_id=${AGENT_ID}
 
 
 *** Variables ***
-${MODEL}        mistral-large-latest
-${AGENT_ID}     ${None}    # To pass at execution else a new agent will be created.
+${MODEL}       mistral-large-latest
+${AGENT_ID}    ${None}    # To pass at execution else a new agent will be created.
 
 
 *** Keywords ***
