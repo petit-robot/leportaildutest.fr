@@ -1,14 +1,14 @@
 *** Settings ***
-Documentation       Relevance audit of the directory. Verdict is created by an AI agent. Assertions are done by the
-...                 test cases.
+Documentation    Relevance audit of the directory. Verdict is created by an AI agent. Assertions are done by the
+...              test cases.
 ...
-...                 The test case below is a test template: the TestCaseGenerator pre-run modifier multiplies it once
-...                 per Markdown file under content/directory/, binding ${resource} in each copy.
+...              The test case below is a test template: the TestCaseGenerator pre-run modifier multiplies it once
+...              per Markdown file under content/directory/, binding ${resource} in each copy.
 ...
-...                 Needs AGENT_API_KEY. Without it, every test is skipped rather than failed.
+...              Needs AGENT_API_KEY. Without it, every test is skipped rather than failed.
 
-Library             Collections
-Resource            ${CURDIR}/../resources/relevance.resource
+Library          Collections
+Resource         ${CURDIR}/../resources/relevance.resource
 
 
 *** Test Cases ***
