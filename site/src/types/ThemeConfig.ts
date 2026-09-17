@@ -54,10 +54,6 @@ export interface ThemeConfig {
       icon: string;
       labelForCard: string;
     };
-    affiliate: {
-      icon: string;
-      labelForCard: string;
-    };
     tags: Array<Tag>;
     tagPages: {
       title: string;

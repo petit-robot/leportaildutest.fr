@@ -11,6 +11,5 @@ export const directorySchema = (imageSchema: z.ZodTypeAny) =>
     link: z.string().url().optional(),
     featured: z.boolean().default(false),
     paid: z.boolean().default(false),
-    affiliate: z.boolean().default(false),
     status: z.enum(STATUSES).default(DEFAULT_STATUS),
   });

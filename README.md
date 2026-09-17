@@ -46,8 +46,7 @@ status: closed
 | `description` | oui         | Quelques phrases présentant la ressource |
 | `link` | oui         | URL de la ressource |
 | `image` | non         | Chemin relatif vers l'image, `../../images/<slug>.png` |
-| `paid` | non         | `true` si la ressource n'est accessible qu'après paiement. Les livres ne sont pas concernés : ils sont payants par défaut. Les formations et abonnements payants (hors livres et conférences) ne sont référencés que dans le cadre d'un contrat d'affiliation : écrire à contact@leportaildutest.fr avant tout ajout (voir les [mentions légales](https://leportaildutest.fr/legal/mentions)) |
-| `affiliate` | non         | `true` si la fiche fait l'objet d'un contrat d'affiliation. Affiche le badge « Affiliation » sur la carte et sur la fiche, comme l'exigent les [mentions légales](https://leportaildutest.fr/legal/mentions). N'a aucun effet sur le classement |
+| `paid` | non         | `true` si la ressource n'est accessible qu'après paiement. Les livres ne sont pas concernés : ils sont payants par défaut |
 | `status` | non         | Actif par défaut (champ à omettre). `inactive` : plus aucune mise à jour depuis plus de 2 ans. `closed` : la ressource n'est plus directement disponible, ou le site annonce explicitement son arrêt — si son lien cesse de répondre, l'ajouter à `ignore` dans `atest/linkcheckerrc` |
 
 
