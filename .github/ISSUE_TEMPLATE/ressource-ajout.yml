@@ -73,26 +73,6 @@ body:
         - label: "La ressource n'est accessible qu'après paiement (inutile pour les livres et les conférences, payants par défaut)"
           required: false
 
-  - type: markdown
-    attributes:
-      value: |
-        > **Contenu payant : une autorisation préalable est nécessaire.**
-        >
-        > Les formations et les abonnements payants (les livres et les conférences ne sont pas
-        > concernés) ne peuvent être référencés qu'après approbation, comme indiqué dans les
-        > [mentions légales](https://leportaildutest.fr/legal/mentions).
-        > Écrivez à [contact@leportaildutest.fr](mailto:contact@leportaildutest.fr) pour entrer en contact avec le
-        > responsable du site.
-
-  - type: checkboxes
-    id: paid-authorization
-    attributes:
-      label: Autorisation pour un contenu payant
-      description: À remplir uniquement si vous avez coché « payant » ci-dessus, pour une formation ou un abonnement.
-      options:
-        - label: "J'ai contacté contact@leportaildutest.fr, ou je le fais dès l'ouverture de cette issue"
-          required: false
-
   - type: dropdown
     id: status
     attributes:
