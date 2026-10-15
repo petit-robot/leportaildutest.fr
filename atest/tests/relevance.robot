@@ -18,7 +18,9 @@ Test Resource ${resource}
 
     Should Topic Be On Software Testing Or Quality    ${resource}
 
-    Should Language Be French    ${resource}
+    IF    $resource.category != 'outils'
+        Should Language Be French    ${resource}
+    END
 
     IF    $resource.paid
         Should Be Paid Resource    ${resource}

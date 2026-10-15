@@ -77,6 +77,45 @@ emoji = "📬"
 description = "Newsletters francophones pour faire sa veille sur le test logiciel."
 
 [[directoryData.tags]]
+key = "outils"
+name = "Outils"
+color = "pink"
+emoji = "🛠️"
+description = "Outils de test logiciel éprouvés : automatisation web, mobile et bureau, API, performance et gestion des tests."
+
+[[directoryData.tags.subtags]]
+key = "web"
+name = "Automatisation web"
+
+[[directoryData.tags.subtags]]
+key = "mobile"
+name = "Mobile"
+
+[[directoryData.tags.subtags]]
+key = "bureau"
+name = "Bureau et automatisation visuelle"
+
+[[directoryData.tags.subtags]]
+key = "api"
+name = "API et contrats"
+
+[[directoryData.tags.subtags]]
+key = "performance"
+name = "Performance"
+
+[[directoryData.tags.subtags]]
+key = "gestion"
+name = "Gestion des tests"
+
+[[directoryData.tags.subtags]]
+key = "no-code"
+name = "No-code et conception par modèles"
+
+[[directoryData.tags.subtags]]
+key = "visuel-accessibilite-securite"
+name = "Régression visuelle, accessibilité, sécurité"
+
+[[directoryData.tags]]
 key = "podcasts"
 name = "Podcasts"
 color = "orange"

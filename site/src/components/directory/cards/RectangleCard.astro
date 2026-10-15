@@ -5,10 +5,19 @@ import DirectoryPaidTag from "../PaidTag.astro";
 import DirectoryStatusTag from "../StatusTag.astro";
 import { Image } from "astro:assets";
 import { isDimmedStatus } from "@lib/status";
+import themeConfig from "@util/themeConfig";
 const { myItem, href } = Astro.props;
 
 // Resource that is no longer active is greyed out.
 const dimmed = isDimmedStatus(myItem.status);
+
+// Display name of the subtag, declared under one of the resource's tags.
+const subtagName = myItem.subtag
+  ? themeConfig.directoryData.tags
+      .filter((tag) => myItem.tags?.includes(tag.key))
+      .flatMap((tag) => tag.subtags ?? [])
+      .find((subtag) => subtag.key === myItem.subtag)?.name
+  : undefined;
 ---
 
 <a href={href}
@@ -32,6 +41,7 @@ const dimmed = isDimmedStatus(myItem.status);
       { myItem.tags?.map(
         (e: string) => <UiTag tag={e} /> )
       }
+      { subtagName && <span class="tag gray-tag">{subtagName}</span> }
     </div>
   </div>
 </a> 

@@ -34,6 +34,19 @@ const tagListings: any[] = allListings.filter((listing: any) => {
   );
 });
 
+// A tag with subtags lists its resources under one heading per subtag, then the resources without one.
+const subtags = tag?.subtags ?? [];
+const sortedListings = sortListings(tagListings);
+const subtagGroups = subtags
+  .map((subtag) => ({
+    name: subtag.name,
+    listings: sortedListings.filter((listing) => listing.data.subtag === subtag.key),
+  }))
+  .filter((group) => group.listings.length > 0);
+const listingsWithoutSubtag = sortedListings.filter(
+  (listing) => !subtags.some((subtag) => subtag.key === listing.data.subtag),
+);
+
 function toTitleCase(str: string) {
   return str.replace(
     /\w\S*/g,
@@ -54,6 +67,24 @@ function toTitleCase(str: string) {
     <p class="text-gray-600 dark:text-gray-200 mb-12 max-w-prose">
       {calculatedDescription}
     </p>
-    <PureGrid listings={sortListings(tagListings)} />
+    {
+      subtags.length === 0 ? (
+        <PureGrid listings={sortedListings} />
+      ) : (
+        <>
+          {subtagGroups.map((group) => (
+            <section class="mb-12">
+              <h2 class="text-gray-600 dark:text-gray-200 font-semibold text-2xl mb-4">
+                {group.name}
+              </h2>
+              <PureGrid listings={group.listings} />
+            </section>
+          ))}
+          {listingsWithoutSubtag.length > 0 && (
+            <PureGrid listings={listingsWithoutSubtag} />
+          )}
+        </>
+      )
+    }
   </div>
 </Sidebar>
