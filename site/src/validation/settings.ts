@@ -94,6 +94,14 @@ const directoryData = z.object({
       color: z.string().optional(),
       emoji: z.string().optional(),
       description: z.string().optional(),
+      subtags: z
+        .array(
+          z.object({
+            key: z.string(),
+            name: z.string(),
+          })
+        )
+        .optional(),
     })
   ),
 });
